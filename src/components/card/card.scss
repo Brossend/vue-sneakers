@@ -1,0 +1,70 @@
+.card {
+  border-radius: 40px;
+  border: 1px solid #F3F3F3;
+
+  padding: 20px 30px 34px;
+
+  &__image {
+    width: 133px;
+    height: 112px;
+
+    margin-bottom: 14px;
+  }
+
+  &__title {
+    max-width: 150px;
+
+    color: #000;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    margin-bottom: 14px;
+  }
+
+  &__cost {
+    display: block;
+
+    color: #BDBDBD;
+
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__cost-value {
+    color: #000;
+
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+  }
+
+  &__plus-btn {
+    width: 32px;
+    height: 32px;
+
+    background: transparent;
+    border: 0;
+
+    cursor: pointer;
+  }
+
+  &__like-btn {
+    position: absolute;
+
+    width: 32px;
+    height: 32px;
+
+    background: transparent;
+    border: 0;
+
+    cursor: pointer;
+  }
+}
