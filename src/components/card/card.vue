@@ -11,14 +11,21 @@
         <span class="card__cost-value">{{ 12999 }} руб.</span>
       </div>
       <button class="card__plus-btn">
-        <img alt="plus" src="../../assets/icons/plus.svg"/>
+        <img alt="plus"
+             src="../../assets/icons/plus.svg"/>
       </button>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-
+const prop = defineProps({
+  title: String,
+  imageUrl: String,
+  price: Number,
+  isFavorite: Boolean,
+  isAdded: Boolean,
+});
 </script>
 
 <style lang="scss" scoped src="./card.scss">
