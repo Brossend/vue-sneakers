@@ -159,11 +159,25 @@ const createOrder = async () => {
   }
 }
 onMounted(async () => {
+  const localBasket = localStorage.getItem('basketCards');
+  basketCards.value = localBasket ? JSON.parse(localBasket) : [];
+
   await fetchItems();
   await fetchFavorites();
+
+  items.value = items.value.map((item: object) => {
+    return ({
+      ...item,
+      isAdded: basketCards.value.some((basketItem) => basketItem.id === item.id)
+    });
+  });
 });
 
 watch(filters, fetchItems);
+
+watch(basketCards, () => {
+  localStorage.setItem('basketCards', JSON.stringify(basketCards.value));
+}, {deep: true});
 
 provide('basket', {
   basketCards,
