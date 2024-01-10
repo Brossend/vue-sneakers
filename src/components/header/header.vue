@@ -8,9 +8,9 @@
       </div>
     </div>
     <div class="nav">
-      <button class="nav__button">
+      <button class="nav__button" @click="emit('closeDrawer')">
         <img alt="basket" class="nav__icon" src="../../assets/icons/cart.svg"/>
-        <span class="nav__button__text">{{ 1205 }} руб.</span>
+        <span class="nav__button__text">{{ props.totalPrice }} руб.</span>
       </button>
       <a>
         <img alt="marks" class="nav__icon" src="../../assets/icons/heart.svg"/>
@@ -25,7 +25,11 @@
 </template>
 
 <script lang="ts" setup>
+const props = defineProps({
+  totalPrice: Number
+})
 
+const emit = defineEmits(['closeDrawer'])
 </script>
 
 <style scoped src="./header.scss">
