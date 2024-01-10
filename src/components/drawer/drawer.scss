@@ -1,0 +1,143 @@
+.drawer {
+  display: flex;
+  flex-direction: row;
+
+  height: 100vh;
+  width: 100%;
+
+  z-index: 1;
+
+  top: 0;
+  left: 0;
+
+  position: fixed;
+
+  &__void {
+    width: 100%;
+
+    opacity: 0.5;
+    background: #000;
+  }
+}
+
+.basket {
+  display: flex;
+  flex-direction: column;
+
+  background: white;
+
+  padding: 30px;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+
+    button {
+      background: transparent;
+      border: 0;
+
+      cursor: pointer;
+    }
+
+    img {
+      transform: rotate(180deg);
+      filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(0deg) brightness(100%) contrast(100%);
+
+      transition: ease 0.3s;
+
+      &:hover {
+        filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(0deg) brightness(100%) contrast(40%);
+
+        transition: ease 0.3s;
+      }
+    }
+
+    &__title {
+      color: #000;
+
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+
+  &__description {
+    margin-top: auto;
+  }
+
+  &__list {
+    display: grid;
+    gap: 20px;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+
+  margin-top: 19px;
+  overflow: auto;
+
+  &__text {
+    color: #000;
+
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  &__price {
+    color: #000;
+
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  span {
+    flex: 1;
+
+    border-bottom: 1px dashed #DFDFDF;
+
+    margin-right: 7px;
+    margin-left: 9px;
+  }
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+
+  min-width: 325px;
+
+  justify-content: space-between;
+
+  border: 0;
+  border-radius: 18px;
+  background: #9DD458;
+
+  margin-top: 24px;
+  padding: 18px 33px 18px 97px;
+
+  transition: ease 0.3s;
+
+  &:hover {
+    background: rgb(141, 203, 16);
+    transition: ease 0.3s;
+  }
+
+  span {
+    display: block;
+    color: #FFF;
+
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  img {
+    width: 14px;
+    height: 17px;
+  }
+}
