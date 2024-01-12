@@ -15,7 +15,7 @@
                    @closeDrawer="emit('closeDrawer')"/>
 
       <div v-if="!(totalPrice === 0)" class="basket__main">
-        <div class="basket__list">
+        <div class="basket__list" v-auto-animate>
           <drawer-card
               v-for="item in basketCards"
               :key="item.id"
