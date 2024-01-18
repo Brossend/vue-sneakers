@@ -12,6 +12,8 @@ import {computed, onMounted, provide, reactive, ref, watch} from "vue";
 import Header from "./components/header/header.vue";
 import Drawer from "./components/drawer/drawer.vue";
 
+const favoritesCount = ref(0);
+
 /* Главная страница */
 const items = ref([]);
 
@@ -46,6 +48,8 @@ const fetchFavorites = async () => {
       if (!favorite) {
         return item;
       }
+
+      favoritesCount.value += 1;
 
       return {
         ...item,
@@ -86,10 +90,12 @@ const addToFavorite = async (item: any) => {
       const {data} = await axios.post('https://c934ca6b9e7ec83f.mokky.dev/favorites', {productId: item.id});
       item.isFavorite = true;
       item.favoriteId = data.id;
+      favoritesCount.value += 1;
     } else {
       item.isFavorite = false;
       await axios.delete(`https://c934ca6b9e7ec83f.mokky.dev/favorites/${item.favoriteId}`);
       item.favoriteId = null;
+      favoritesCount.value -= 1;
     }
   } catch (e) {
     console.error(e);
@@ -160,6 +166,7 @@ watch(basketCards, () => {
 
 provide('main', {
   items,
+  favoritesCount,
   onChangeSearchInput,
   addToFavorite,
   onClickAdd
