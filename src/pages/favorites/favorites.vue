@@ -2,7 +2,7 @@
   <div class="favorites">
     <favorites-info v-if="!favoritesCount"/>
     <div v-else>
-      <h2  class="favorites__title">Мои закладки</h2>
+      <h2 class="favorites__title">Мои закладки</h2>
       <favorites-list/>
     </div>
   </div>

@@ -1,21 +1,10 @@
 <template>
-  <div style="padding-top: 45px; margin-left: 45px; margin-right: 45px;">
-    <div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 45px;">
-      <h2 style="align-self: center;
-      color: #000;
+  <div class="home">
+    <div class="home__header">
+      <h2 class="home__header__title">Все кроссовки</h2>
 
-      font-size: 32px;
-      font-weight: 700;
-      ">Все кроссовки</h2>
-
-      <div style="display: flex; flex-direction: row;">
-        <img alt="search" src="../../assets/icons/search.svg" style="
-        display: block;
-        border-radius: 10px 0 0 10px;
-        border: 1px solid #F3F3F3;
-        border-right: 0;
-        padding: 15px;
-        "/>
+      <div class="home__header__search">
+        <img alt="search" src="../../assets/icons/search.svg"/>
         <input
             placeholder="Поиск..."
             style="
@@ -46,6 +35,6 @@ import {inject} from "vue";
 const {items, onChangeSearchInput, addToFavorite, onClickAdd} = inject('main')
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped src="./home.scss">
 
 </style>
