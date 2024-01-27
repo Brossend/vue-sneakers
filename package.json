@@ -1,5 +1,5 @@
 {
-  "name": "severyanochka",
+  "name": "vue-sneakers",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,14 +9,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.1",
+    "@mdi/font": "^7.4.47",
     "axios": "^1.6.5",
-    "vue": "^3.3.11"
+    "vue": "^3.3.11",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
     "sass": "^1.69.6",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
-    "vue-tsc": "^1.8.25"
+    "vite-plugin-vuetify": "^2.0.1",
+    "vue-tsc": "^1.8.25",
+    "vuetify": "^3.5.1"
   }
 }
