@@ -23,6 +23,7 @@ const drawerOpen = ref(false);
 
 /* Заказ */
 const isOrderLoading = ref(false);
+const isOrderComplete = ref(false);
 
 /* Главная страница */
 const filters = reactive({
@@ -105,6 +106,7 @@ const addToFavorite = async (item: any) => {
 /* Корзина */
 const closeDrawer = () => {
   drawerOpen.value = !drawerOpen.value;
+  isOrderComplete.value = false;
 };
 const addToBasket = (item: any) => {
   basketCards.value.push(item);
@@ -139,6 +141,7 @@ const createOrder = async () => {
     console.error(e)
   } finally {
     isOrderLoading.value = false;
+    isOrderComplete.value = true;
   }
 };
 
@@ -176,6 +179,7 @@ provide('basket', {
   basketCards,
   totalPrice,
   basketButtonDisabled,
+  isOrderComplete,
   addToBasket,
   removeToBasket,
   onClickAdd,

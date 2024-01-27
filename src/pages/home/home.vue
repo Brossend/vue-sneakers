@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Slider/>
     <div class="home__header">
       <h2 class="home__header__title">Все кроссовки</h2>
 
@@ -31,6 +32,7 @@
 <script lang="ts" setup>
 import CardList from "../../components/card/cardList/cardList.vue";
 import {inject} from "vue";
+import Slider from "../../components/slider/Slider.vue";
 
 const {items, onChangeSearchInput, addToFavorite, onClickAdd} = inject('main')
 </script>

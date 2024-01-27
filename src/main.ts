@@ -6,6 +6,10 @@ import App from './App.vue'
 import home from "./pages/home/home.vue";
 import favorites from "./pages/favorites/favorites.vue";
 import profile from "./pages/profile/profile.vue";
+import 'vuetify/styles'
+import {createVuetify} from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 
 
 const routes = [
@@ -19,4 +23,10 @@ const router = createRouter({
     routes
 });
 
-createApp(App).use(autoAnimatePlugin).use(router).mount('#app');
+const vuetify = createVuetify({
+    components,
+    directives,
+})
+
+
+createApp(App).use(autoAnimatePlugin).use(router).use(vuetify).mount('#app');

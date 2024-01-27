@@ -10,12 +10,12 @@
       </div>
 
       <drawer-info v-if="totalPrice === 0" :description="'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ'"
-                   :order="false"
+                   :order="isOrderComplete"
                    :title="'Корзина пустая'"
                    @closeDrawer="emit('closeDrawer')"/>
 
       <div v-if="!(totalPrice === 0)" class="basket__main">
-        <div class="basket__list" v-auto-animate>
+        <div v-auto-animate class="basket__list">
           <drawer-card
               v-for="item in basketCards"
               :key="item.id"
@@ -55,7 +55,7 @@ import DrawerInfo from "./drawer-info/drawer-info.vue";
 
 const emit = defineEmits(['closeDrawer']);
 
-const {basketCards, totalPrice, basketButtonDisabled, removeToBasket, createOrder} = inject('basket');
+const {isOrderComplete, basketCards, totalPrice, basketButtonDisabled, removeToBasket, createOrder} = inject('basket');
 </script>
 
 <style lang="scss" scoped src="./drawer.scss">
