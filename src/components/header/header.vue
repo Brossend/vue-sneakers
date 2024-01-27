@@ -8,9 +8,9 @@
       </div>
     </router-link>
     <div class="nav">
-      <button class="nav__button" @click="emit('closeDrawer')">
+      <button class="nav__button" @click="closeDrawer">
         <img alt="basket" class="nav__icon" src="../../assets/icons/cart.svg"/>
-        <span class="nav__button__text">{{ props.totalPrice }} руб.</span>
+        <span class="nav__button__text">{{ totalPrice }} руб.</span>
       </button>
       <router-link to="/favorites">
         <img alt="marks" class="nav__icon" src="../../assets/icons/heart.svg"/>
@@ -22,14 +22,15 @@
       </router-link>
     </div>
   </div>
+  <div>
+    <router-view/>
+  </div>
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-  totalPrice: Number
-})
+import {inject} from "vue";
 
-const emit = defineEmits(['closeDrawer'])
+const {totalPrice, closeDrawer} = inject('basket');
 </script>
 
 <style scoped src="./header.scss">

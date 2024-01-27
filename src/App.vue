@@ -1,16 +1,14 @@
 <template>
-  <Header :totalPrice="totalPrice" @closeDrawer="closeDrawer"/>
   <Drawer v-if="drawerOpen" @closeDrawer="closeDrawer"/>
-
-  <router-view></router-view>
+  <router-view/>
 </template>
 
 <script lang="ts" setup>
 import axios from "axios";
 import {computed, onMounted, provide, reactive, ref, watch} from "vue";
-
-import Header from "./components/header/header.vue";
 import Drawer from "./components/drawer/drawer.vue";
+import {useAuthStore} from "./store/auth/index.js";
+import router from "./router";
 
 const favoritesCount = ref(0);
 
@@ -161,6 +159,18 @@ onMounted(async () => {
   });
 });
 
+const authStore = useAuthStore();
+
+if (authStore.isAuth === false) {
+  router.push('/auth');
+}
+
+window.addEventListener('beforeunload', () => {
+  if (authStore.isRemember === false) {
+    localStorage.clear();
+  }
+});
+
 watch(filters, fetchItems);
 
 watch(basketCards, () => {
@@ -181,6 +191,7 @@ provide('basket', {
   basketButtonDisabled,
   isOrderComplete,
   addToBasket,
+  closeDrawer,
   removeToBasket,
   onClickAdd,
   createOrder

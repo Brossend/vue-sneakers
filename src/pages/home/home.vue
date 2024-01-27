@@ -34,7 +34,7 @@ import CardList from "../../components/card/cardList/cardList.vue";
 import {inject} from "vue";
 import Slider from "../../components/slider/Slider.vue";
 
-const {items, onChangeSearchInput, addToFavorite, onClickAdd} = inject('main')
+const {items, onChangeSearchInput, addToFavorite, onClickAdd} = inject('main');
 </script>
 
 <style lang="scss" scoped src="./home.scss">
