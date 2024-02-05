@@ -36,6 +36,9 @@ export const useAuthStore = defineStore('auth', () => {
             .then((userCredential) => {
                 accessToken.value = userCredential.user?.accessToken;
                 isAuth.value = true;
+                isRemember.value = true;
+
+                router.push('/');
             })
             .catch((error) => {
                 const errorCode = error.code;

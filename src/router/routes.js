@@ -3,6 +3,7 @@ const Home = () => import('../pages/home/home.vue');
 const Favorites = () => import('../pages/favorites/favorites.vue');
 const Profile = () => import('../pages/profile/profile.vue');
 const Auth = () => import('../pages/auth/Auth.vue');
+const Reg = () => import('../pages/registration/Registration.vue');
 
 const routes = [{
     name: 'Home',
@@ -38,6 +39,14 @@ const routes = [{
         pageTitle: 'Вход в аккаунт'
     }
 },
+    {
+        path: '/reg',
+        component: Reg,
+        name: 'Registration',
+        meta: {
+            pageTitle: 'Регистрация'
+        }
+    }
 ];
 
 export default routes;
